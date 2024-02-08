@@ -3,7 +3,7 @@ import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 
 export const signup = async (req, res, next) => {
-  //Another way to create
+  //****************Another way to create*************
   // const newUser = await User.create({
   //   username: req.body.username,
   //   email: req.body.email,
