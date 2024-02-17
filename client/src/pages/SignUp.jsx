@@ -93,7 +93,7 @@ export default function SignUp() {
             >
               {loading ? (
                 <>
-                  <Spinner size="sm" /> <span>Loading...</span>{" "}
+                  <Spinner size="sm" /> <span>Loading...</span>
                 </>
               ) : (
                 "Sign Up"
