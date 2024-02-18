@@ -21,6 +21,7 @@ app.listen(port, () => {
   console.log(`server is running on ${port}`);
 });
 
+// routing the routes in main app
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
