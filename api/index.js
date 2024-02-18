@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-
+import cookieParser from "cookie-parser";
 dotenv.config();
 mongoose
   .connect(process.env.MONGO)
@@ -15,6 +15,7 @@ mongoose
   });
 //sjfs
 const app = express();
+app.use(cookieParser());
 app.use(express.json());
 const port = 4000;
 app.listen(port, () => {
