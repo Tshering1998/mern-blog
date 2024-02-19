@@ -22,7 +22,11 @@ app.listen(port, () => {
   console.log(`server is running on ${port}`);
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello from the mern app");
+});
 // routing the routes in main app
+
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
