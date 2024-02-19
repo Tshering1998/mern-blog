@@ -17,11 +17,11 @@ export const updateUser = async (req, res, next) => {
     req.body.password = bcryptjs.hashSync(req.body.password, 10);
   }
   if (req.body.username) {
-    if (req.body.username.length < 7) {
-      return next(
-        errorHandler(400, "Username must be greater than 7 character")
-      );
-    }
+    // if (req.body.username.length < 7) {
+    //   return next(
+    //     errorHandler(400, "Username must be greater than 7 character")
+    //   );
+    // }
     if (req.body.usernameincludes(" ")) {
       return next(errorHandler(400, "Username cannot contain the spaces"));
     }
