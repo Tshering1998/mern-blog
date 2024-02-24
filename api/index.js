@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
@@ -6,9 +7,6 @@ import authRoutes from "./routes/authRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
 import cookieParser from "cookie-parser";
-import path from path;
-
-
 
 dotenv.config();
 mongoose
@@ -19,6 +17,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+const __dirname = path.resolve();
 //sjfs
 const app = express();
 app.use(cookieParser());
@@ -29,7 +29,7 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello from the mern app");
+  res.send("Hello fr om the mern app");
 });
 // routing the routes in main app
 
@@ -38,13 +38,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
 
-app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'client','dist','index.html'))
-})
-;
-
-app.use(express.static(path.join(__dirname,'/client/dist')))
-
+app.use(express.static(path.join(__dirname, "/client/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 // error handling middleware
 app.use((err, req, res, next) => {
